@@ -1,8 +1,5 @@
 package tree;
 
-import java.util.*;
-//import javax.swing.tree.TreeNode;
-import javax.swing.tree.*;
 /**
  *Given a binary tree, find its maximum depth.
 
