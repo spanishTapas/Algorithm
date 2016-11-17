@@ -1,4 +1,5 @@
 package tree;
+<<<<<<< HEAD
 /**
  * 
  * @author wanmingzhang
@@ -15,12 +16,16 @@ package tree;
          /  \
          7   4
  */
+=======
+
+>>>>>>> 154b09faaf1cec2225730107395ace67c27be190
 public class LowestCommonAncester {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 	}
+<<<<<<< HEAD
 	
 public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 	if (root == null) {
@@ -44,5 +49,7 @@ public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 }
 
 
+=======
+>>>>>>> 154b09faaf1cec2225730107395ace67c27be190
 
 }
