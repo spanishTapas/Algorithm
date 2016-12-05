@@ -46,10 +46,16 @@ public class WordPattern {
 		}
 		
 		int len = pattern.length();
+
 		String[] words = str.split("\\s+");
 		
 /** debug code
 //		System.out.println("pattern length " + len);
+
+		//System.out.println("pattern length " + len);
+		
+		String[] words = str.split("\\s+");
+
 //		System.out.println("words array length " + words.length);
 //		for (String word : words) {
 //			System.out.print(word + " ");
@@ -80,5 +86,5 @@ public class WordPattern {
 		}
 		return true;
     }
-	
+
 }
