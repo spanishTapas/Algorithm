@@ -36,9 +36,9 @@ public class BadVersion {
        while (l+1 < r) {
     	   int mid = l + (r-l)/2;
            System.out.println("mid = " + mid);
-       		if (!isBadVersion(mid)) {
+       		if (!isBadVersion(mid)) { // 1st bad version is in the second half
        			l = mid;
-       		} else {
+       		} else { // 1st bad v is in the first half
        			r = mid;
        		}
        }
