@@ -6,6 +6,16 @@ package linked_list;
  *Follow up:
  * Can you solve it without using extra space?
  */
+
+/**
+ * @author wanmingzhang
+ * Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
+
+ * Note: Do not modify the linked list.
+
+ * Follow up:
+ * Can you solve it without using extra space?
+ */
 public class LinkedListCycle {
 
 	public static void main(String[] args) {
@@ -21,6 +31,10 @@ public class LinkedListCycle {
 		System.out.println("n3 has cycle " + obj.hasCycle(n3));
 		System.out.println("n4 has cycle " + obj.hasCycle(n4));
 		
+		System.out.println("node where the cycle begins " + obj.detectCycle(n1));
+		System.out.println("node where the cycle begins " + obj.detectCycle(n2));
+		System.out.println("node where the cycle begins " + obj.detectCycle(n3).val);
+		System.out.println("node where the cycle begins " + obj.detectCycle(n4).val);
 	}
 	
 	private ListNode testCase1() {
@@ -69,4 +83,27 @@ public class LinkedListCycle {
 		}
 		return true;
 	}
+	
+	private ListNode detectCycle(ListNode head) {
+		if (head == null || head.next == null) {
+			return null;
+		}
+		
+		ListNode slow = head;
+		ListNode fast = head.next;
+		while (slow != fast) {
+			if (fast == null || fast.next == null) {
+				return null; // no cycle
+			}
+			slow = slow.next;
+			fast = fast.next.next;
+		}
+		// detected cycle, find out head
+		while (head != slow.next) {
+			head = head.next;
+			slow = slow.next;
+		}
+		return head;
+    }
+
 }
