@@ -80,6 +80,7 @@ public class BinaryTreePaths {
 	private void pathHelper(TreeNode node, String path, List<String> result) {
 		if (node == null)
 			return;
+		
 		if (node.left == null && node.right == null) {
 			result.add(path);
 			return;
@@ -90,7 +91,6 @@ public class BinaryTreePaths {
 		if (node.right != null) {
 			pathHelper(node.right, path + "->" + (String.valueOf(node.right.val)), result);
 		}
-		
 		
 	}
 }
