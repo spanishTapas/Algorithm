@@ -16,39 +16,64 @@ import java.util.*;
 public class ValidAnagram {
 
 	public static void main(String[] args) {
-		//String s = "anagram", t = "nagaram";
-		String s = "rat", t = "car";
-		System.out.println(isAnagram(s,t));
+		ValidAnagram obj = new ValidAnagram();
+		
+		System.out.println(obj.isAnagram("rat","car"));
+		System.out.println(obj.isAnagram("anagram","nagaram"));
 
 	}
-	public static boolean isAnagram(String s, String t) {
+	
+	private boolean isAnagram(String s, String t) {
+		if (s == null || t == null) 
+			return false;
+		if (s.length() != t.length()) 
+			return false;
 		
-        Map<Character,Integer> map = new HashMap<Character,Integer>();
-        
-        char[] sArr = s.toCharArray();
-        char[] tArr = t.toCharArray();
-        
-        for (char charS : sArr) {
-            if (map.containsKey(charS)) {
-                map.put(charS, map.get(charS)+1);
-            } else {
-                map.put(charS,1);
-            }
-        }
-        
-        for (char charT : tArr) {
-            if (map.containsKey(charT)) {
-                map.put(charT, map.get(charT)-1);
-                if (map.get(charT) == 0) {
-                    map.remove(charT);
-                }
-                
-            } else {
-                return false;
-            }
-        }
-        return map.isEmpty();
-    }
+		int[] arr = new int[26];
+		
+		for (int i=0; i<s.length(); i++) {
+			arr[s.charAt(i) - 'a']++;
+			arr[t.charAt(i) - 'a']--;
+		}
+		for (int element : arr) {
+			System.out.print(element + " ");
+		}
+		for (int element : arr) {
+			if (element != 0) 
+				return false;
+		}		
+		return true;	
+	}
+	
+	/* this works but runs slower */
+//	private boolean isAnagram(String s, String t) {
+//		
+//        Map<Character,Integer> map = new HashMap<Character,Integer>();
+//        
+//        char[] sArr = s.toCharArray();
+//        char[] tArr = t.toCharArray();
+//        
+//        for (char charS : sArr) {
+//            if (map.containsKey(charS)) {
+//                map.put(charS, map.get(charS)+1);
+//            } else {
+//                map.put(charS,1);
+//            }
+//        }
+//        
+//        for (char charT : tArr) {
+//            if (map.containsKey(charT)) {
+//                map.put(charT, map.get(charT)-1);
+//                if (map.get(charT) == 0) {
+//                    map.remove(charT);
+//                }
+//                
+//            } else {
+//                return false;
+//            }
+//        }
+//        return map.isEmpty();
+//    }
 	
 
 }
